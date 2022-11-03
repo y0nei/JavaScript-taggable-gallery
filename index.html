@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>JS Gallery</title>
+        <meta name="description" content="Extensible plain JS gallery example + jquery example">
+        <meta name="author" content="Zim">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <link rel="stylesheet" href="index.css">
+
+        <script src="plain.js"></script>
+        <!-- * UNCOMMENT FOR JQUERRY EXAMPLE -->
+        <!--
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="jquery.js"></script>
+        -->
+    </head>
+    <body>
+        <div class="MainContainer">
+            <div class="GalleryContainer">
+                <ul>
+                    <li class="list active" data-filter="imagebox">All</li>
+                    <li class="list" data-filter="landscape">Landscapes</li>
+                    <li class="list" data-filter="flower">Flowers</li>
+                    <li class="list" data-filter="pet">Pets</li>
+                    <li class="list" data-filter="cat">Cats</li>
+                    <li class="list" data-filter="dog">Dogs</li>
+                </ul>
+                <div id="viewer"></div>
+            </div>
+        </div>
+
+        <div class="imageView">
+            <div class="imageViewPanel">
+                <div class="imageViewSpacer"></div>
+                <div class="imageViewClose"><img class="closeicon" src="./xmark.svg"/></div>
+            </div>
+            <div class="imageViewImage">
+                <img>
+            </div>
+        </div>
+    </body>
+</html>

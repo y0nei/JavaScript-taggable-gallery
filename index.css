@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+:root {
+    --element-bg: #181818;
+    --accent-color: #f9ff90;
+    --accent-gradient: linear-gradient(-25deg, #ffc271, var(--accent-color))
+}
+* {
+    margin: 0;
+    background: #373737;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Image Gallery */
+#viewer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* * Main container */
+.GalleryContainer {
+    width: calc(100% - 40px);
+    padding: 20px;
+}
+/* Tags */
+.GalleryContainer ul {
+    justify-content: center;
+    display: flex;
+    margin-bottom: 10px;
+    padding-left: 0;
+}
+.GalleryContainer ul li {
+    list-style: none;
+    background: var(--element-bg);
+    color: #eee;
+    padding: 8px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.GalleryContainer ul li.active {
+    background: var(--accent-gradient);
+    color: #333;
+}
+
+/* * Gallery elements */
+.imagebox {
+    min-width: 300px;
+    height: 300px;
+    margin: 10px;
+    flex: 1;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.imagebox:hover {
+    transform: scale(1.025);
+}
+.imagebox img {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    border-radius: 8px;
+    border-width: 2px;
+    border-color: var(--accent-color);
+    border-style: solid;
+}
+
+/* imageviewer */
+.imageView {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #222222dd;
+    pointer-events: none;
+    z-index: 3;
+    opacity: 0;
+    transition: 0.25s;
+}
+.imageView-visible {
+    pointer-events: all;
+    opacity: 1;
+}
+.imageViewPanel {
+    padding: 5px;
+    display: flex;
+    flex: 0;
+    flex-grow: 0;
+}
+.imageViewSpacer {
+    flex: 1;
+    flex-grow: 1;
+}
+.imageViewClose {
+    cursor: pointer;
+    display: flex;
+    flex: 0;
+    flex-grow: 0;
+}
+.imageViewClose img{
+    width: 25px;
+    height: 25px;
+    filter: invert(1);
+    background-color: transparent;
+    transition: 0.3s;
+}
+.imageViewClose img:hover {
+    transform: scale(1.2);
+}
+.imageViewImage {
+    position: relative;
+    margin: 16px;
+    background-color: transparent;
+    height: calc(100% - 50px);
+    text-align: center;
+}
+.imageViewImage img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+    /* max-height: 720px; */
+}
+
+@media screen and (max-width:600px) {
+    .GalleryContainer ul {
+        flex-direction: column;
+    }
+    .GalleryContainer ul li {
+        text-align: center;
+    }
+}
